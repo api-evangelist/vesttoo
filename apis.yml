@@ -1,17 +1,37 @@
 aid: vesttoo
 name: Vesttoo
-description: 'Vesttoo is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: Vesttoo Ltd. was an Israeli insurtech, founded in Tel Aviv in 2018, that operated a technology
+  platform for insurance-linked securities and alternative risk transfer — matching insurers, reinsurers
+  and MGAs seeking capacity with institutional investors in the capital markets, with an emphasis on non-catastrophe
+  life and property/casualty risk. The company collapsed in 2023 after billions of dollars of counterfeit
+  letters of credit were discovered being used as collateral on its platform. Vesttoo filed for Chapter
+  11 in Delaware in August 2023; a creditors' plan of liquidation was confirmed in early 2024 and went
+  effective in April 2024, and the estate is now administered by the Vesttoo Creditors Liquidating Trust,
+  which continues to pursue recovery litigation. The company no longer operates. Its domain publishes
+  no web host, and no developer portal, API documentation, SDK or machine-readable contract survives at
+  any reachable address.
 url: https://raw.githubusercontent.com/api-evangelist/vesttoo/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: harvest
+x-harvest-listing: https://forgeglobal.com/vesttoo_stock/
 specificationVersion: '0.20'
+x-status: defunct
+x-status-detail: Collapsed after the 2023 fraudulent letters-of-credit scandal and entered
+  Chapter 11; vesttoo.com no longer resolves. No Website registered on purpose.
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
+- Insurance
+- Insurtech
+- Reinsurance
+- Insurance-Linked Securities
+- Alternative Risk Transfer
+- Capital Markets
+- Financial Services
+- Defunct
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +39,28 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
-- type: Website
-  url: https://forgeglobal.com/vesttoo_stock/
+- type: DomainSecurity
+  url: security/vesttoo-domain-security.yml
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: Vesttoo was liquidated in Chapter 11 (plan effective April 2024) and its domain now publishes
+    MX and TXT records but no A, AAAA or CNAME, so vesttoo.com has no web host at all and every HTTPS
+    probe fails at connection setup rather than returning a page.
+  evidence:
+  - url: https://vesttoo.com/
+    status: 0
+  - url: https://www.vesttoo.com/
+    status: 0
+  - url: https://vesttoo.com/.well-known/security.txt
+    status: 0
+  - url: https://vesttoo.com/openapi.json
+    status: 0
+  - url: https://api.github.com/orgs/vesttoo
+    status: 404
+  checked: '2026-09-02'

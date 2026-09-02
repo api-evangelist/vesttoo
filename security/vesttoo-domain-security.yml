@@ -1,0 +1,55 @@
+generated: '2026-09-02'
+method: probed
+source: live DNS/TLS/HTTP probes of vesttoo.com (dig @8.8.8.8, curl)
+note: >-
+  Rewritten 2026-09-02. The prior revision of this file profiled forgeglobal.com — a
+  third-party secondary-market venue that merely lists Vesttoo stock — because the only
+  Website pointer in apis.yml was that venue listing. Those numbers described Forge
+  Global's security posture, not Vesttoo's, and were removed. This file now probes
+  vesttoo.com, the company's own registered domain.
+hosts:
+- host: vesttoo.com
+  https: false
+  http_status: 000
+  tls_version: null
+  cert_expires: null
+  hsts: null
+  note: >-
+    No A, AAAA or CNAME record is published, so there is no web listener to negotiate TLS
+    with. Every HTTPS request fails at connection setup (curl exit / status 000), not with
+    an HTTP error code. TLS, HSTS and certificate fields are therefore not applicable
+    rather than absent-by-choice.
+- host: www.vesttoo.com
+  https: false
+  http_status: 000
+  tls_version: null
+  cert_expires: null
+  hsts: null
+  note: No A/AAAA record; same connection-level failure as the apex.
+domains:
+- domain: vesttoo.com
+  dns_zone_present: true
+  dns_rcode: NOERROR
+  soa: ns11.domaincontrol.com. dns.jomax.net. 2025040378
+  nameservers:
+  - ns11.domaincontrol.com
+  - ns12.domaincontrol.com
+  a_records: []
+  aaaa_records: []
+  mx_present: true
+  mx:
+  - aspmx.l.google.com
+  - alt1.aspmx.l.google.com
+  - alt2.aspmx.l.google.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:_spf.google.com -all
+  dmarc: true
+  dmarc_policy: none
+  dmarc_record: v=DMARC1;p=none;rua=mailto:system@vesttoo.com,mailto:8f830c3efa@rua.easydmarc.us;ruf=mailto:8f830c3efa@ruf.easydmarc.us;fo=1;
+  assessment: >-
+    The zone is alive but web-dead. Mail is still routed to Google Workspace with a strict
+    SPF (-all) and DMARC monitoring via EasyDMARC, which is consistent with a wind-down
+    estate retaining the domain for correspondence. No CAA is published and the zone is
+    unsigned (no DS/DNSKEY). There is no web host, so no HTTP surface exists to secure.

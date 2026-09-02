@@ -1,0 +1,42 @@
+generated: '2026-09-02'
+method: probed
+source: direct HTTPS probes of vesttoo.com / www.vesttoo.com on 2026-09-02
+note: >-
+  Recorded absence, not a served surface. vesttoo.com publishes no A/AAAA/CNAME record, so
+  none of these paths reach an HTTP listener — every probe fails at connection setup and is
+  recorded as status 000 (no response) rather than 404. No WellKnown or SecurityTxt pointer
+  is emitted in apis.yml, because nothing here returned a document; this file documents an
+  absence and must not be read as a presence.
+hosts:
+- host: vesttoo.com
+  reachable: false
+  reason: no A/AAAA record published; connection never established
+  documents:
+  - path: /.well-known/security.txt
+    status: 000
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 000
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 000
+    file: null
+  - path: /.well-known/api-catalog
+    status: 000
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 000
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 000
+    file: null
+  - path: /.well-known/agent.json
+    status: 000
+    file: null
+- host: www.vesttoo.com
+  reachable: false
+  reason: no A/AAAA record published; connection never established
+  documents:
+  - path: /.well-known/security.txt
+    status: 000
+    file: null

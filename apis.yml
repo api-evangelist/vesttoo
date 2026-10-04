@@ -30,7 +30,7 @@ tags:
 - Insurance-Linked Securities
 - Alternative Risk Transfer
 - Capital Markets
-- Financial-Services
+- Financial Services
 - Defunct
 tags_raw:
 - Company
@@ -42,6 +42,7 @@ tags_raw:
 - Capital Markets
 - Financial Services
 - Defunct
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
